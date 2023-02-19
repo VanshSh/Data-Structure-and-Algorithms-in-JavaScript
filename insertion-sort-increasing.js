@@ -1,4 +1,4 @@
-console.log('Insertion Sort in Increasing Order')
+// console.log('Insertion Sort in Increasing Order')
 
 // function insertInc(arr) {
 //     for (let i = 1; i < arr.length; i++) {

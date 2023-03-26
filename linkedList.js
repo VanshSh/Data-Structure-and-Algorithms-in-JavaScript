@@ -19,7 +19,7 @@ class LinkedList {
         return this.size
     }
 
-    // Constant time complexity O(1)
+    // Constant time complexity O(1). Prepend = add to the beginning
     prepend(value) {
         const node = new Node(value)
         if (this.isEmpty()) {
@@ -30,7 +30,7 @@ class LinkedList {
         }
         this.size++
     }
-    // Linear time complexity O(n)
+    // Linear time complexity O(n). Append = add to the end
     append(value) {
         const node = new Node(value)
         if (this.isEmpty()) {
@@ -61,6 +61,26 @@ class LinkedList {
             prev.next = node
             this.size++
         }
+    }
+
+    removeFrom(index) {
+        if (index < 0 || index >= this.size) {
+            return null
+        }
+        let removeNode
+        if (index === 0) {
+            removeNode = this.head
+            this.head = this.head.next
+        } else {
+            let prev = this.head
+            for (let i = 0; i < index - 1; i++) {
+                prev = prev.next
+            }
+            removeNode = prev.next
+            prev.next = removeNode.next
+        }
+        this.size--
+        return removeNode.value
     }
     print() {
         if (this.isEmpty()) {
@@ -98,4 +118,6 @@ list.insert(800, 4)
 list.insert(900, 5)
 list.insert(1000, 3)
 
+console.log(list.removeFrom(3))
+console.log(list.removeFrom(2))
 list.print()

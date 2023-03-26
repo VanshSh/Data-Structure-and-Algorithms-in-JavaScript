@@ -18,6 +18,8 @@ class LinkedList {
     getSize() {
         return this.size
     }
+
+    // Constant time complexity O(1)
     prepend(value) {
         const node = new Node(value)
         if (this.isEmpty()) {
@@ -27,6 +29,38 @@ class LinkedList {
             this.head = node
         }
         this.size++
+    }
+    // Linear time complexity O(n)
+    append(value) {
+        const node = new Node(value)
+        if (this.isEmpty()) {
+            this.head = node
+        } else {
+            let prev = this.head
+            while (prev.next) {
+                prev = prev.next
+            }
+            prev.next = node
+        }
+        this.size++
+    }
+
+    insert(value, index) {
+        if (index < 0 || index > this.size) {
+            return
+        }
+        if (index === 0) {
+            this.prepend(value)
+        } else {
+            const node = new Node(value)
+            let prev = this.head
+            for (let i = 0; i < index - 1; i++) {
+                prev = prev.next
+            }
+            node.next = prev.next
+            prev.next = node
+            this.size++
+        }
     }
     print() {
         if (this.isEmpty()) {
@@ -47,9 +81,21 @@ const list = new LinkedList()
 console.log(list.isEmpty())
 console.log(list.getSize())
 list.print()
-list.prepend(10)
+// list.prepend(10)
 list.print()
-list.prepend(50)
-list.prepend(60)
-list.prepend(70)
+// list.prepend(50)
+// list.prepend(60)
+// list.prepend(70)
+// list.print()
+// list.append(100)
+// list.append(200)
+// list.prepend(300)
+
+list.insert(400, 0)
+list.insert(500, 1)
+list.insert(600, 2)
+list.insert(800, 4)
+list.insert(900, 5)
+list.insert(1000, 3)
+
 list.print()

@@ -1,4 +1,3 @@
-import { LinkedList } from './linkedlist_with_tail.js'
 class LinkedListStack {
     constructor() {
         this.list = new LinkedList()

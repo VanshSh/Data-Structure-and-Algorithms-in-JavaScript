@@ -102,15 +102,16 @@ class LinkedList {
         }
     }
 }
+export { LinkedList }
 
-const list = new LinkedList()
-list.append(1)
-list.append(2)
-list.append(3)
-list.prepend(0)
-list.print()
-console.log(list.getSize())
-list.removeFromFront()
-list.print()
-list.removeFromEnd()
-list.print()
+// const list = new LinkedList()
+// list.append(1)
+// list.append(2)
+// list.append(3)
+// list.prepend(0)
+// list.print()
+// console.log(list.getSize())
+// list.removeFromFront()
+// list.print()
+// list.removeFromEnd()
+// list.print()
